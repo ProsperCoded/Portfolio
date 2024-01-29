@@ -132,6 +132,7 @@
   outline: none;
   border: none;
   background: none;
+  text-decoration: none;
 }
 
 @mixin customizeSlider(
@@ -184,4 +185,21 @@
     min-height: 100vh;
     min-width: 100vw;
   }
+}
+
+@mixin applyMask($svgUrl, $position: center center, $size: cover) {
+  -webkit-mask-image: url($svgUrl);
+  mask-image: url($svgUrl);
+  -webkit-mask-position: $position;
+  mask-position: $position;
+  -webkit-mask-size: $size;
+  mask-size: $size;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  overflow: hidden;
+}
+@mixin absolute() {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

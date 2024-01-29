@@ -4,6 +4,15 @@
 @import "fonts.scss";
 @import "colors";
 
+@include ImplementBase();
+
+// Variables
+$maxSmallScreen: 600px;
+$minMediumScreen: 768px;
+body {
+  overflow: hidden;
+  background-color: var(--color-dark);
+}
 .btn {
   @include reset-button-input();
   &--twist {
@@ -14,14 +23,13 @@
     color: var(--color-light);
     font-weight: 700;
     @include clickable(var(--color-blue-dark));
-    padding: 0.5rem 1rem;
-    font-size: 1.1em;
+    padding: 0.35em 0.5em;
+    font-size: 0.95rem;
   }
 }
 
 @import "../components/Nav/Nav";
 @import "../components/Main/Main.scss";
-@include ImplementBase();
 :root {
   // prefered
   color-scheme: light;
