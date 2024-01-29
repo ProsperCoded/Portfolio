@@ -1,0 +1,28 @@
+// @use "_globalMixins.scss" as x;
+@import "utils";
+@import "_globalMixins.scss";
+@import "fonts.scss";
+@import "colors";
+
+.btn {
+  @include reset-button-input();
+  &--twist {
+    font-family: $primary-font;
+    border-top-left-radius: 0.6em;
+    border-end-end-radius: 0.6em;
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    font-weight: 700;
+    @include clickable(var(--color-blue-dark));
+    padding: 0.5rem 1rem;
+    font-size: 1.1em;
+  }
+}
+
+@import "../components/Nav/Nav";
+@import "../components/Main/Main.scss";
+@include ImplementBase();
+:root {
+  // prefered
+  color-scheme: light;
+}

@@ -1,0 +1,5 @@
+@mixin circleGradient() {
+  background: transparent linear-gradient(180deg, #8200d8 0%, #1571a8 100%) 0%
+    0% no-repeat padding-box;
+  border-radius: 50%;
+}

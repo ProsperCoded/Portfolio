@@ -1,0 +1,31 @@
+@font-face {
+  font-family: Nunito-VariableFont_wght;
+  src: url(./static/Nunito-VariableFont_wght.ttf) format(truetype);
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: 100%;
+}
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Nunito-VariableFont_wght;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.d-none {
+  display: none !important;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-width: 100vw;
+}/*# sourceMappingURL=App.css.map */
