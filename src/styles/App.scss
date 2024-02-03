@@ -10,7 +10,7 @@
 $maxSmallScreen: 600px;
 $minMediumScreen: 768px;
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: var(--color-dark);
 }
 .btn {
@@ -30,7 +30,8 @@ body {
 
 @import "../components/Nav/Nav";
 @import "../components/Main/Main.scss";
+@import "../components/Projects/Projects.scss";
 :root {
   // prefered
-  color-scheme: light;
+  color-scheme: light dark;
 }

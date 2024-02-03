@@ -24,6 +24,9 @@ function Main() {
             <a href="#resume" className="btn btn--twist">
               Download CV
             </a>
+
+            {/* <a href="application">A</a> */}
+
             <button className="btn btn--twist main__cta">Hire Me</button>
           </div>
         </div>
