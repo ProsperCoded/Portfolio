@@ -1,7 +1,11 @@
 $curveDividerUrl: "../static/CurveMain.svg";
+.circle-gradient {
+  @include circleGradient();
+  position: absolute;
+  z-index: 3;
+}
 .main {
   width: 100%;
-  // background-size: 150%;
   background-size: 105%;
   color: var(--color-white);
   position: relative;

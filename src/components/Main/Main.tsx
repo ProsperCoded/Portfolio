@@ -6,10 +6,10 @@ function Main() {
   return (
     <div className="main ">
       <div className="main__content container-curve">
-        <div className="main__heading">
+        <header className="main__heading">
           <h1 className="main__title">Hello, My name is</h1>
           <span className="main__name highlight">Prosper Enwerem</span>
-        </div>
+        </header>
         <BlobAnimation />
         <div className="main__info">
           <h2 className="main__profession">I am a Developer</h2>
@@ -62,6 +62,43 @@ function Main() {
           <div className="main__divider"></div>
         </div>
       </div>
+      <div
+        style={{
+          position: "absolute",
+          width: "50%",
+          height: "50%",
+          top: "0",
+          left: "0",
+        }}
+      >
+        <div style={{ position: "relative", width: "100%", height: "100%" }}>
+          <div
+            className="circle-gradient"
+            style={{ width: "15em", height: "15em", left: "30%", top: "-20%" }}
+          ></div>
+          <div
+            className="circle-gradient"
+            style={{
+              width: "6em",
+              height: "6em",
+              left: "30%",
+              transform: "translate(160%, -50%)",
+              top: "10%",
+              rotate: "30deg",
+            }}
+          ></div>
+        </div>
+      </div>
+      <div
+        className="circle-gradient"
+        style={{
+          width: "7rem",
+          height: "7rem",
+          bottom: "10%",
+          rotate: "80deg",
+          transform: "translate(50%, -50%)",
+        }}
+      ></div>
     </div>
   );
 }
