@@ -1,13 +1,16 @@
 import Main from "../components/Main/Main";
-import Nav from "../components/Nav/Nav";
 import Projects from "../components/Projects/Projects";
+import About from "../components/About/About";
 
 function Home() {
   return (
     <div className="home">
-      <Nav />
+      {/* <Nav /> */}
       <Main />
-      <Projects />
+      <div>
+        <Projects />
+        <About />
+      </div>
     </div>
   );
 }

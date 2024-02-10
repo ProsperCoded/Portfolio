@@ -1,0 +1,15 @@
+.about {
+  &__header-text {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+  padding: 0 1em;
+  li > b {
+    text-decoration: underline;
+  }
+}
+.about .about-page {
+  &::before {
+    content: none;
+  }
+}

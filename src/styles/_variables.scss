@@ -3,7 +3,7 @@
   // --code-primary: 58, 41, 145;
   --color-primary: rgb(158, 219, 235);
   // Blue like color
-  --code-secondary: 34, 86, 160;
+  --code-secondary: 185, 34, 130;
   --color-secondary: #bb2284;
   --color-blue-dark: #080030;
 
@@ -12,9 +12,13 @@
 
   --color-light: rgba(255, 255, 255, 0.82);
   --code-light: 255, 255, 255;
-  --color-dark: rgb(22, 22, 22);
-  --code-dark: 22, 22, 22;
-
-  // --code-gray: #d2cbe6;
-  // --color-theme: white;
+  // --color-dark: rgb(22, 22, 22);
+  // --code-dark: 22, 22, 22;
+  --color-dark: rgb(3 0 15);
+  --code-dark: 3, 0, 15;
+}
+// Sizes
+:root {
+  --heading: 2.5rem;
+  --sub-heading: 1.7rem;
 }

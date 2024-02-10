@@ -175,6 +175,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   .d-none {
     display: none !important;
   }
@@ -202,4 +205,26 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+@mixin clearSpace() {
+  margin: 0;
+  padding: 0;
+}
+@mixin underlineAnimate($color) {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    background-color: var($color);
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: width 100ms ease-in;
+  }
+  &:hover {
+    &:after {
+      width: 100%;
+    }
+  }
 }

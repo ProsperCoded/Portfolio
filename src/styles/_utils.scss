@@ -3,3 +3,37 @@
     0% no-repeat padding-box;
   border-radius: 50%;
 }
+
+@mixin Neon($color) {
+  filter: blur(0.3px) brightness(1.2) drop-shadow(0 0 2px var($color));
+}
+.highlight {
+  padding: 0.125em 0.2em;
+  margin-left: 0.125em;
+  margin-right: 0.125em;
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+}
+body {
+  overflow-x: hidden;
+  background-color: var(--color-dark);
+}
+
+.btn {
+  @include reset-button-input();
+  &--twist {
+    font-family: $primary-font;
+    border-top-left-radius: 0.6em;
+    border-end-end-radius: 0.6em;
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    font-weight: 700;
+    @include clickable(var(--color-blue-dark));
+    padding: 0.35em 0.5em;
+    font-size: 0.95em;
+  }
+}
+
+// a {
+//   color: rgba(var(--code-secondary), 0.7);
+// }

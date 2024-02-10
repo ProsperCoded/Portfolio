@@ -1,36 +1,19 @@
 // @use "_globalMixins.scss" as x;
-@import "utils";
 @import "_globalMixins.scss";
 @import "fonts.scss";
-@import "colors";
-
+@import "variables";
 @include ImplementBase();
+@import "utils";
 
-// Variables
+// Sass Variables
 $maxSmallScreen: 600px;
 $minMediumScreen: 768px;
-body {
-  overflow-x: hidden;
-  background-color: var(--color-dark);
-}
-.btn {
-  @include reset-button-input();
-  &--twist {
-    font-family: $primary-font;
-    border-top-left-radius: 0.6em;
-    border-end-end-radius: 0.6em;
-    background-color: var(--color-secondary);
-    color: var(--color-light);
-    font-weight: 700;
-    @include clickable(var(--color-blue-dark));
-    padding: 0.35em 0.5em;
-    font-size: 0.95rem;
-  }
-}
 
 @import "../components/Nav/Nav";
 @import "../components/Main/Main.scss";
 @import "../components/Projects/Projects.scss";
+@import "../components/About/About.scss";
+@import "../pages/pages.scss";
 :root {
   // prefered
   color-scheme: light dark;

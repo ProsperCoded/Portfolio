@@ -1,7 +1,15 @@
 $primary-font: Nunito;
 $secondary-font: futura;
-@include embed-font($primary-font, "./static/Nunito-VariableFont_wght.ttf");
-@include embed-font($secondary-font, "./static/futura light bt.ttf");
+@include embed-font(
+  $primary-font,
+  "./static/Nunito-VariableFont_wght.woff2",
+  $format: "woff2"
+);
+@include embed-font(
+  $secondary-font,
+  "./static/futura light bt.woff2",
+  $format: "woff2"
+);
 
 #hello {
   font-family: $primary-font;

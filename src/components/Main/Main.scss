@@ -17,6 +17,7 @@ $curveDividerUrl: "./static/Blobs/CurveMain.svg";
     grid-template-rows: repeat(2, auto);
     @media screen and (min-width: $maxSmallScreen) {
       padding-bottom: 17vw;
+      font-size: 1.3em;
     }
     grid-template-columns: 1fr 1.5fr;
     @media screen and (min-width: $minMediumScreen) {
@@ -40,12 +41,11 @@ $curveDividerUrl: "./static/Blobs/CurveMain.svg";
   &__name {
     font-size: 1.2em;
     font-weight: 700;
-    background-color: var(--color-secondary);
-    padding: 0.125em 0.3em;
     text-wrap: nowrap;
   }
   &__profession {
     color: var(--color-primary);
+    @include Neon(--color-primary);
     font-size: 1.5em;
   }
   &__description {
@@ -57,9 +57,7 @@ $curveDividerUrl: "./static/Blobs/CurveMain.svg";
       margin: 0.5em;
     }
   }
-  .ImageBlob {
-    width: 100%;
-  }
+
   @media screen and (min-width: $minMediumScreen) {
     font-size: 1.1em;
     .main__cta {
@@ -81,38 +79,32 @@ $curveDividerUrl: "./static/Blobs/CurveMain.svg";
   overflow: visible;
 }
 .ImageBlob {
-  width: 100%;
+  width: auto;
   background-size: 100%;
-  background-position: bottom center;
+  background-position: center;
   background-repeat: no-repeat;
   $url: "data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3ClinearGradient id=%22b%22 gradientTransform=%22rotate(-30 .5 .5)%22%3E%3Cstop offset=%220%25%22 stop-color=%22%238200d8%22%2F%3E%3Cstop offset=%22100%25%22 stop-color=%22%231571a8%22%2F%3E%3C%2FlinearGradient%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M750.5 647Q734 794 586 783t-330.5-44Q73 706 120.5 523T307 302q139-38 272-53t160.5 118q27.5 133 11 280Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22url(%23b)%22 d=%22M750.5 647Q734 794 586 783t-330.5-44Q73 706 120.5 523T307 302q139-38 272-53t160.5 118q27.5 133 11 280Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E";
-  @include applyMask($url, bottom center);
+  @include applyMask($url, top center);
+  mask-size: contain;
   position: relative;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent linear-gradient(180deg, #8200d8 0%, #1571a8 100%) 0%
-      0% no-repeat padding-box;
-  }
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background: transparent linear-gradient(180deg, #8200d8 0%, #1571a8 100%) 0%
+  //     0% no-repeat padding-box;
+  // }
   img {
-    // height: 100%;
     width: 100%;
+    // height: 100%;
     z-index: 2;
     position: relative;
   }
 }
-
-// :has(> .main__heading) {
-//   display: grid;
-//   grid-template-columns: 1.5fr 1fr;
-//   grid-template-rows: 30vh;
-//   align-items: end;
-// }
 
 .main__dividers {
   content: "";
@@ -128,14 +120,14 @@ $curveDividerUrl: "./static/Blobs/CurveMain.svg";
   .main__divider:first-child {
     @include absolute();
     width: 100%;
-    height: 120%;
-    background-color: rgba(var(--code-light), 0.2);
+    height: 150%;
+    background-color: rgba(var(--code-light), 0.05);
   }
   .main__divider:nth-child(2) {
     @include absolute();
     width: 100%;
-    height: 150%;
-    background-color: rgba(var(--code-light), 0.2);
+    height: 250%;
+    background-color: rgba(var(--code-light), 0.05);
   }
   .main__divider {
     @include applyMask($curveDividerUrl, $position: bottom center);

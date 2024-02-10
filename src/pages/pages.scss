@@ -1,0 +1,86 @@
+// Facilitate grid in project/about section in home page
+:has(> .projects):has(> .about) {
+  @media screen and (min-width: ($minMediumScreen + 350)) {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    & > :nth-child(2) {
+      padding-top: 10%;
+    }
+  }
+}
+
+//  Page
+.page {
+  width: auto;
+  position: relative;
+  padding-top: 10%;
+  padding-right: 5%;
+  padding-left: 5%;
+  line-height: 1.6;
+  z-index: 3;
+  color: var(--color-light);
+  font-size: 1.1em;
+  .content {
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+    max-width: 700px;
+  }
+  .heading {
+    color: var(--color-secondary);
+    @include Neon(--color-secondary);
+    text-align: center;
+    font-size: calc(var(--heading) * 1.5);
+    @include clearSpace();
+  }
+  .sub-heading {
+    color: var(--color-primary);
+    font-size: var(--subheading);
+    @include clearSpace();
+  }
+  &::before {
+    z-index: 1;
+    top: 0;
+    left: 0;
+    position: absolute;
+    content: "";
+    width: 100%;
+    $url: "data:image/svg+xml,%3Csvg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none' %3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' class='shape-fill' fill='%23FFFFFF' fill-opacity='1'%3E%3C/path%3E%3C/svg%3E";
+    @include applyMask($url, $position: bottom center);
+    background-image: linear-gradient(
+      45deg,
+      var(--color-blue-dark),
+      #251577,
+      var(--color-blue-light)
+    );
+    overflow: visible;
+    height: 30vh;
+  }
+  .icon {
+    width: 3.5em;
+    object-fit: contain;
+    margin-right: 0.5em;
+  }
+  :has(> .icon) {
+    display: flex;
+  }
+}
+
+// ProjectProcess
+.project-page {
+  .project__web-link {
+    position: relative;
+    &::after {
+      content: "→";
+      position: absolute;
+      top: 0;
+      left: 101%;
+      transition: left 100ms ease-in;
+    }
+    &:hover {
+      &::after {
+        left: calc(101% + 10px);
+      }
+    }
+  }
+}
