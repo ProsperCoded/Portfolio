@@ -10,6 +10,8 @@ import NavTogglerIcon from "../../assets/icons/navtoggler.svg";
 import GitHub from "../../assets/icons/github.svg";
 import { Tooltip } from "antd";
 import { useReducer, useRef, useState } from "react";
+
+const currentOrigin = window.location.origin;
 function TooltipLinks({
   title,
   children,
@@ -194,14 +196,18 @@ function NavLinks({
           <NavLink to="/about">About</NavLink>
         </li>
         <li>
-          <a href="#skills">Skills</a>
+          <a href={`${currentOrigin}#skills`}>Skills</a>
         </li>
         <li>
-          <a href="#projects">Projects</a>
+          {/* <Link to={`${currentOrigin}#projects`}>Projects</Link> */}
+          <a href={`${currentOrigin}#projects`}>Projects</a>
           {/* <NavLink to="#projects">About</NavLink> */}
         </li>
         <li>
-          <NavLink to="/resume">Resume</NavLink>
+          {/* <NavLink to="/resume">Resume</NavLink> */}
+          <a href="./static/resume.pdf" target="_blank">
+            Resume
+          </a>
         </li>
       </ul>
     </div>

@@ -1,10 +1,9 @@
-$curveDividerUrl: "./static/Blobs/CurveMain.svg";
+$curveDividerUrl: "../static/CurveMain.svg";
 .main {
   width: 100%;
   // background-size: 150%;
   background-size: 105%;
   color: var(--color-white);
-  border: 2px solid black;
   position: relative;
   &__content {
     padding: 0 1em 0 1em;
@@ -80,12 +79,14 @@ $curveDividerUrl: "./static/Blobs/CurveMain.svg";
 }
 .ImageBlob {
   width: auto;
-  background-size: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  $url: "data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3ClinearGradient id=%22b%22 gradientTransform=%22rotate(-30 .5 .5)%22%3E%3Cstop offset=%220%25%22 stop-color=%22%238200d8%22%2F%3E%3Cstop offset=%22100%25%22 stop-color=%22%231571a8%22%2F%3E%3C%2FlinearGradient%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M750.5 647Q734 794 586 783t-330.5-44Q73 706 120.5 523T307 302q139-38 272-53t160.5 118q27.5 133 11 280Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22url(%23b)%22 d=%22M750.5 647Q734 794 586 783t-330.5-44Q73 706 120.5 523T307 302q139-38 272-53t160.5 118q27.5 133 11 280Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E";
-  @include applyMask($url, top center);
-  mask-size: contain;
+  // object-fit: cover;
+  // background-size: 100%;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // $url: "data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3ClinearGradient id=%22b%22 gradientTransform=%22rotate(-30 .5 .5)%22%3E%3Cstop offset=%220%25%22 stop-color=%22%238200d8%22%2F%3E%3Cstop offset=%22100%25%22 stop-color=%22%231571a8%22%2F%3E%3C%2FlinearGradient%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M750.5 647Q734 794 586 783t-330.5-44Q73 706 120.5 523T307 302q139-38 272-53t160.5 118q27.5 133 11 280Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22url(%23b)%22 d=%22M750.5 647Q734 794 586 783t-330.5-44Q73 706 120.5 523T307 302q139-38 272-53t160.5 118q27.5 133 11 280Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E";
+  // @include applyMask($url, top center);
+  // -webkit-mask-size: contain;
+  // mask-size: contain;
   position: relative;
 
   // &::before {
@@ -99,7 +100,7 @@ $curveDividerUrl: "./static/Blobs/CurveMain.svg";
   //     0% no-repeat padding-box;
   // }
   img {
-    width: 100%;
+    height: 100%;
     // height: 100%;
     z-index: 2;
     position: relative;

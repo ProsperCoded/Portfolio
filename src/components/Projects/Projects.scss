@@ -6,11 +6,11 @@
     text-align: center;
     font-family: $primary-font;
     color: var(--color-light);
-    font-size: var(--heading);
+    // font-size: var(--heading);
     margin: 0.5rem auto;
     @include Neon(--color-light);
     @media screen and (min-width: $maxSmallScreen) {
-      font-size: calc(var(--heading) * 1.2);
+      // font-size: calc(var(--heading) * 1.2);
       margin: 0 auto;
     }
   }
@@ -126,7 +126,7 @@
     width: 12em;
     height: 12em;
     margin: 0 auto;
-    border-radius: 50%;
+    border-radius: 0.5em;
     border: 2px solid rgba(var(--code-dark), 0.6);
     // object-fit: cover;
 

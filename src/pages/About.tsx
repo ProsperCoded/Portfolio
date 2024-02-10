@@ -14,7 +14,7 @@ function AboutPage({ brief = false }: { brief?: Boolean }) {
       }
     >
       <>
-        <p>
+        <p className="profile">
           I am a passionate and results-driven Fullstack Developer with over a
           year of hands-on experience specializing in front-end development and
           possessing intermediate proficiency in backend technologies. Currently

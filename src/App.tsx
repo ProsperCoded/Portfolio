@@ -1,4 +1,6 @@
 import "./styles/App.scss";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "aos/dist/aos.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.tsx";
 import AboutPage from "./pages/About.tsx";

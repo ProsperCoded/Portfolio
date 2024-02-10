@@ -12,4 +12,8 @@
   &::before {
     content: none;
   }
+  .heading {
+    color: var(--color-lights);
+    @include Neon(--color-light);
+  }
 }

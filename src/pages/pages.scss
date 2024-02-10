@@ -30,7 +30,7 @@
     color: var(--color-secondary);
     @include Neon(--color-secondary);
     text-align: center;
-    font-size: calc(var(--heading) * 1.5);
+    // font-size: calc(var(--heading) * 1.5);
     @include clearSpace();
   }
   .sub-heading {

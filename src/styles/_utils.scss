@@ -33,7 +33,15 @@ body {
     font-size: 0.95em;
   }
 }
-
-// a {
-//   color: rgba(var(--code-secondary), 0.7);
-// }
+h1 {
+  font-size: 3em;
+}
+h3 {
+  font-size: 1.5em;
+}
+::selection {
+  background-color: rgba(var(--code-secondary), 0.7);
+}
+i {
+  margin: 5px;
+}

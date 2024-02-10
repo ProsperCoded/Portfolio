@@ -1,5 +1,5 @@
 import { Tooltip } from "antd";
-import { useId, useRef } from "react";
+import { useEffect, useId, useRef } from "react";
 import { Javascript, React, Sass, TypeScript, Vite, Vue } from "./Technologies";
 // General Imports
 import gitHubIcon from "./assets/icons/github.webp";
@@ -14,6 +14,7 @@ import CalcCoded_Interface from "./assets/calccoded/interface.webp";
 import CalcCoded_Logo from "./assets/calccoded/logo.webp";
 import { Link } from "react-router-dom";
 import { ProjectDataType } from "../../types";
+import AOS from "aos";
 
 export const ProjectsData: ProjectDataType[] = [
   {
@@ -82,14 +83,17 @@ type ProjectProps = {
 function Project(props: ProjectProps) {
   const url = useRef(new URL(props.link));
   // const location = useLocation();
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <div className="project">
+    <div className="project" data-aos="flip-left">
       <a href={props.link} target="_blank" rel="noopener noreferrer">
         <Tooltip
           title={`Visit ${props.title}`}
           arrow
           trigger={["hover"]}
-          color="var(--color-dark)"
+          color="var(--color-secondary)"
         >
           <img
             className="project__icon"
@@ -102,7 +106,7 @@ function Project(props: ProjectProps) {
         title={"Click to view development Process"}
         arrow
         trigger={["hover"]}
-        color="var(--color-dark)"
+        color="var(--color-secondary)"
       >
         <Link to={`/project/${props.id}`} style={{ textDecoration: "none" }}>
           <div className="project__image">

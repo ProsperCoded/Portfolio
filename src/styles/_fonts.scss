@@ -2,12 +2,12 @@ $primary-font: Nunito;
 $secondary-font: futura;
 @include embed-font(
   $primary-font,
-  "./static/Nunito-VariableFont_wght.woff2",
+  "../static/Nunito-VariableFont_wght.woff2",
   $format: "woff2"
 );
 @include embed-font(
   $secondary-font,
-  "./static/futura light bt.woff2",
+  "../static/futura light bt.woff2",
   $format: "woff2"
 );
 
@@ -17,13 +17,3 @@ $secondary-font: futura;
   font-weight: 800;
   font-stretch: extra-expanded;
 }
-// @font-face {
-//   font-family: n
-//   src: './static/';
-//   font-weight: normal;
-//   font-style: normal;
-
-//   // font-weight: 400;
-//   font-stretch: 100%;
-//   // font-variation-settings: "wght" 400, "wdth" 100;
-// }

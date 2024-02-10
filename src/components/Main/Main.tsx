@@ -1,4 +1,8 @@
+import { Tooltip } from "antd";
+import { useRef } from "react";
+
 function Main() {
+  const downloadRef = useRef<HTMLAnchorElement | null>(null);
   return (
     <div className="main ">
       <div className="main__content container-curve">
@@ -10,23 +14,41 @@ function Main() {
         <div className="main__info">
           <h2 className="main__profession">I am a Developer</h2>
           <p className="main__description">
-            I am not just a Full Stack Web Developer; I am a digital creator
-            passionate about bringing visions to life. With a keen eye for
-            aesthetics and a dedication to user-centric and SEO-friendly design,
-            I specialize in creating websites that not only look good but also
-            perform exceptionally well. From crafting simple static sites to
-            managing intricate blog platforms and building scalable agency
-            websites, I am committed to delivering digital solutions that leave
-            a lasting impact.
+            I am not just a{" "}
+            <b className="highlight">Full Stack Web Developer</b>. I am a
+            digital creator passionate about bringing visions to life. With a
+            keen eye for aesthetics and a dedication to user-centric and
+            SEO-friendly design, I specialize in creating websites that not only
+            look good but also perform exceptionally well. From crafting simple
+            static sites to managing intricate blog platforms and building
+            scalable agency websites, I am committed to delivering digital
+            solutions that leave a lasting impact.
           </p>
           <div className="main__actions">
-            <a
-              href="./static/resume.pdf"
-              className="btn btn--twist"
-              target="_blank"
+            <Tooltip
+              title="Right CLick to download CV"
+              arrow
+              color="var(--color-secondary)"
             >
-              View CV
-            </a>
+              <a
+                href="./static/resume.pdf"
+                className="btn btn--twist"
+                target="_blank"
+                onContextMenu={(e) => {
+                  downloadRef.current?.click();
+                  e.preventDefault();
+                }}
+              >
+                <i className="bi bi-file-earmark-person"></i>
+                View / Download CV
+              </a>
+              <a
+                href="./static/resume.pdf"
+                className="d-none"
+                ref={downloadRef}
+                download
+              ></a>
+            </Tooltip>
 
             <a href="hire-me" className="btn btn--twist main__cta">
               Hire Me
@@ -46,7 +68,7 @@ function Main() {
 function BlobAnimation() {
   return (
     <div className="ImageBlob">
-      <img src="./static/profile.jpg" alt="Profile Picture" />
+      <img src="./static/profile.png" alt="Profile Picture" />
     </div>
   );
 }
