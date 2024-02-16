@@ -18,6 +18,7 @@
     "aos": "^2.3.4",
     "bootstrap-icons": "^1.11.3",
     "kute.js": "^2.2.4",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.3",

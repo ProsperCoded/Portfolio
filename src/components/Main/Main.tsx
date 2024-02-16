@@ -1,5 +1,6 @@
 import { Tooltip } from "antd";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 function Main() {
   const downloadRef = useRef<HTMLAnchorElement | null>(null);
@@ -42,6 +43,8 @@ function Main() {
                 <i className="bi bi-file-earmark-person"></i>
                 View / Download CV
               </a>
+
+              <Link to="/services">Services</Link>
               <a
                 href="./static/resume.pdf"
                 className="d-none"

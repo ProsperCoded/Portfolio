@@ -14,17 +14,26 @@
   width: auto;
   position: relative;
   padding-top: 10%;
-  padding-right: 5%;
-  padding-left: 5%;
+  padding-right: 4%;
+  padding-left: 4%;
   line-height: 1.6;
   z-index: 3;
   color: var(--color-light);
   font-size: 1.1em;
+
   .content {
     margin: 0 auto;
     z-index: 2;
     position: relative;
-    max-width: 700px;
+    max-width: 800px;
+    -webkit-backdrop-filter: brightness(75%) blur(4px);
+    backdrop-filter: brightness(75%) blur(4px);
+    // border: solid 1px var(--color-light);
+    box-shadow: 0 2px 5px 0 black;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .heading {
     color: var(--color-secondary);
@@ -84,3 +93,28 @@
     }
   }
 }
+
+// services
+.services {
+  color: var(--color-light) !important;
+  input [type="text"] {
+    background-color: var(--color-light);
+  }
+}
+.upload {
+  &__technologies {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    justify-items: start;
+  }
+  label {
+    margin: 0.5em;
+  }
+  button.add-technology {
+    margin: 0.5em;
+    margin-left: auto;
+  }
+}
+
+@include uploadImageComponent();

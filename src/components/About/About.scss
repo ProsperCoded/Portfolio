@@ -9,6 +9,9 @@
   }
 }
 .about .about-page {
+  .content {
+    display: block;
+  }
   &::before {
     content: none;
   }

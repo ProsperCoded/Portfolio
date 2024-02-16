@@ -1,11 +1,11 @@
-import * as Technologies from "../Projects/Technologies";
-import Typography from "@mui/joy/Typography";
 import CircularProgress from "@mui/joy/CircularProgress";
-import { useCountUp } from "use-count-up";
-import { useEffect, useId, useState } from "react";
-import { TechnologyInstance } from "../../types";
+import Typography from "@mui/joy/Typography";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useEffect, useId, useRef, useState } from "react";
+import { useCountUp } from "use-count-up";
+import { TechnologyInstance } from "../../types";
+import * as Technologies from "../Projects/Technologies";
 
 function Skills() {
   const FrontendSkills: [
@@ -67,12 +67,11 @@ function Skills() {
 
             <h3 className="heading">Frontend Development</h3>
           </header>
-          <p className="content">
+          <div className="content">
             <span className="tint" data-tint={"primary"}>
               {"<div>"}
             </span>
             <p>
-              {" "}
               I major in Frontend Development, with a keen eye for design and
               user experience fully capable of building responsive and reactive
               websites Websites with User Centric Design. I understand the
@@ -82,7 +81,7 @@ function Skills() {
             <span className="tint" data-tint={"primary"}>
               {"</div>"}
             </span>
-          </p>
+          </div>
           <ul className="category__skill-list">
             {FrontendSkills.map((Tech) => {
               return (
@@ -104,7 +103,7 @@ function Skills() {
 
             <h3 className="heading">Backend Development</h3>
           </header>
-          <p className="content">
+          <div className="content">
             <span className="tint" data-tint={"primary"}>
               {"{"}
             </span>
@@ -119,7 +118,7 @@ function Skills() {
             <span className="tint" data-tint={"primary"}>
               {"}"}
             </span>
-          </p>
+          </div>
           <ul className="category__skill-list">
             {BackendSkills.map((Tech) => {
               return (
@@ -141,7 +140,7 @@ function Skills() {
 
             <h3 className="heading">Related Skills</h3>
           </header>
-          <p className="content">
+          <div className="content">
             <span className="tint" data-tint={"primary"}>
               {"["}
             </span>
@@ -157,7 +156,7 @@ function Skills() {
             <span className="tint" data-tint={"primary"}>
               {"]"}
             </span>
-          </p>
+          </div>
           <ul className="category__skill-list">
             {RelatedSkills.map((Tech) => {
               return (
@@ -180,18 +179,49 @@ function Skill({
   Technology: ({ displayCaption }: TechnologyInstance) => JSX.Element;
   Percentage: number;
 }) {
+  const skillRef = useRef<HTMLDivElement | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    const MonitorSkills = new IntersectionObserver(
+      (elements) => {
+        if (elements[0].isIntersecting && !isLoading) {
+          setIsLoading(true);
+          unObserve();
+        }
+      },
+      {
+        threshold: 1,
+        rootMargin: "3%",
+      }
+    );
+    MonitorSkills.observe(skillRef.current!);
+    function unObserve() {
+      MonitorSkills.unobserve(skillRef.current!);
+    }
+  }, []);
   return (
-    <div className="skill">
+    <div className="skill" ref={skillRef}>
       <Technology displayCaption={true} />
       <div className="progress">
-        <CircularProgressAnimated value={Percentage} />
+        <CircularProgressAnimated
+          value={Percentage}
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
+        />
       </div>
     </div>
   );
 }
 
-function CircularProgressAnimated({ value }: { value: number }) {
-  const [isLoading, setIsLoading] = useState(true);
+function CircularProgressAnimated({
+  value,
+  isLoading,
+  setIsLoading,
+}: {
+  value: number;
+  isLoading: boolean;
+  setIsLoading: Function;
+}) {
   const { value: value1, reset: resetValue1 } = useCountUp({
     isCounting: isLoading,
     duration: 2,
@@ -206,40 +236,11 @@ function CircularProgressAnimated({ value }: { value: number }) {
       size="md"
       variant="outlined"
       determinate
-      value={value1 as number}
+      value={parseInt(value1!.toString()) as number}
     >
       <Typography>{value1}%</Typography>
     </CircularProgress>
   );
 }
 
-function category({
-  tintText,
-  tintData,
-  content,
-  heading,
-}: {
-  tintText: string;
-  tintData: string;
-  content: JSX.Element;
-  heading: string;
-}) {
-  return (
-    <div className="skills__category">
-      <header>
-        <i className="bi bi-braces"></i>
-        <h3 className="heading">{heading}</h3>
-      </header>
-      <p className="content">
-        <span className="tint" data-tint={tintText}>
-          {tintData}
-        </span>
-        {content}
-        <span className="tint" data-tint={tintText}>
-          {tintData}
-        </span>
-      </p>
-    </div>
-  );
-}
 export default Skills;
