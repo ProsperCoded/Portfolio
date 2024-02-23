@@ -1,7 +1,8 @@
 :root {
   // Purple like color
   // --code-primary: 58, 41, 145;
-  --color-primary: rgb(158, 219, 235);
+  // --color-primary: rgb(158, 219, 235);
+  --color-primary: #9edbeb;
   // Blue like color
   --code-secondary: 185, 34, 130;
   --color-secondary: #bb2284;
@@ -9,6 +10,7 @@
 
   --code-blue-light: 0, 51, 123;
   --color-blue-light: #00337b;
+  --color-blue-light-transparent: rgba(0, 51, 123, 0.521);
 
   --color-light: rgba(255, 255, 255, 0.82);
   --code-light: 255, 255, 255;

@@ -1,13 +1,13 @@
 function Page({
-  className,
+  className = "",
   heading,
   subHeading,
   children,
   icon,
 }: {
-  className: string;
+  className?: string;
   heading: string;
-  subHeading: JSX.Element | undefined;
+  subHeading?: JSX.Element | undefined;
   children: JSX.Element;
   icon?: string;
 }) {

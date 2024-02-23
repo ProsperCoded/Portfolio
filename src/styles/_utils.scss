@@ -45,3 +45,6 @@ h3 {
 i {
   margin: 5px;
 }
+.clickable {
+  @include clickable();
+}

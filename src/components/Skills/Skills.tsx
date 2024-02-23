@@ -2,65 +2,72 @@ import CircularProgress from "@mui/joy/CircularProgress";
 import Typography from "@mui/joy/Typography";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useId, useRef, useState } from "react";
+import { useContext, useEffect, useId, useMemo, useRef, useState } from "react";
 import { useCountUp } from "use-count-up";
-import { TechnologyInstance } from "../../types";
+import { TechnologyInstance, TechnologyType } from "../../types";
 import * as Technologies from "../Projects/Technologies";
+import { SKILLS_CONTEXT, isDesktop } from "../../App";
+import * as _ from "lodash";
+import { GetTechComponent } from "../Projects/Technologies";
 
 function Skills() {
-  const FrontendSkills: [
-    ({ displayCaption }: TechnologyInstance) => JSX.Element,
-    number
-  ][] = [
-    [Technologies.React, 90],
-    [Technologies.Javascript, 90],
-    [Technologies.Sass, 80],
-    [Technologies.TypeScript, 80],
-    [Technologies.Vite, 70],
-    [Technologies.Vue, 75],
-    [Technologies.NPM, 75],
-    [Technologies.AntJS, 60],
-    [Technologies.TailwindCSS, 50],
-    [Technologies.Lodash, 60],
-    [Technologies.HTML, 95],
-    [Technologies.CSS, 80],
-  ];
-  const BackendSkills: [
-    ({ displayCaption }: TechnologyInstance) => JSX.Element,
-    number
-  ][] = [
-    [Technologies.Express, 90],
-    [Technologies.MongoDB, 90],
-    [Technologies.Node, 80],
-    [Technologies.NPM, 80],
-  ];
-  const RelatedSkills: [
-    ({ displayCaption }: TechnologyInstance) => JSX.Element,
-    number
-  ][] = [
-    [Technologies.Git, 80],
-    [Technologies.GitHub, 90],
-    [Technologies.Node, 80],
-    [Technologies.NPM, 95],
-    [Technologies.XD, 90],
-  ];
+  const [skillsData, setSkillsData] = useContext(SKILLS_CONTEXT);
+  let skillsByCategory = useMemo(
+    () => _.groupBy(skillsData, "category"),
+    [skillsData]
+  );
+  console.log("categorized, ", skillsByCategory);
+  const FrontendSkills = skillsByCategory["frontend"] || [];
+  const BackendSkills = skillsByCategory["backend"] || [];
+  const RelatedSkills = skillsByCategory["related"] || [];
+  // const FrontendSkills: [
+  //   ({ displayCaption }: TechnologyInstance) => JSX.Element,
+  //   number
+  // ][] = [
+  //   [Technologies.React, 90],
+  //   [Technologies.Javascript, 90],
+  //   [Technologies.Sass, 80],
+  //   [Technologies.TypeScript, 80],
+  //   [Technologies.Vite, 70],
+  //   [Technologies.Vue, 75],
+  //   [Technologies.NPM, 75],
+  //   [Technologies.AntJS, 60],
+  //   [Technologies.TailwindCSS, 50],
+  //   [Technologies.Lodash, 60],
+  //   [Technologies.HTML, 95],
+  //   [Technologies.CSS, 80],
+  // ];
+  // const BackendSkills: [
+  //   ({ displayCaption }: TechnologyInstance) => JSX.Element,
+  //   number
+  // ][] = [
+  //   [Technologies.Express, 90],
+  //   [Technologies.MongoDB, 90],
+  //   [Technologies.Node, 80],
+  //   [Technologies.NPM, 80],
+  // ];
+  // const RelatedSkills: [
+  //   ({ displayCaption }: TechnologyInstance) => JSX.Element,
+  //   number
+  // ][] = [
+  //   [Technologies.Git, 80],
+  //   [Technologies.GitHub, 90],
+  //   [Technologies.Node, 80],
+  //   [Technologies.NPM, 95],
+  //   [Technologies.XD, 90],
+  // ];
   useEffect(() => {
-    AOS.init();
+    isDesktop && AOS.init();
   }, []);
   return (
-    <section
-      className="skills"
-      id="skills"
-      data-aos="fade-up"
-      // data-aos-duration="3000"
-    >
+    <section className="skills" id="skills" data-aos={isDesktop && "fade-up"}>
       <h1 className="skills__heading">Skills</h1>
       <div className="skills__categories">
         <div
           className="skills__category"
-          data-aos="fade-right"
-          data-aos-anchor-placement="left-bottom"
-          data-aos-duration="800"
+          data-aos={isDesktop && "fade-right"}
+          data-aos-anchor-placement={isDesktop && "left-bottom"}
+          data-aos-duration={isDesktop && "800"}
         >
           <header>
             <i className="bi bi-code-slash"></i>
@@ -83,10 +90,13 @@ function Skills() {
             </span>
           </div>
           <ul className="category__skill-list">
-            {FrontendSkills.map((Tech) => {
+            {FrontendSkills.map((Tech, index) => {
               return (
-                <li className="skill-list-item" key={useId()}>
-                  <Skill Technology={Tech[0]} Percentage={Tech[1]} />
+                <li className="skill-list-item" key={index}>
+                  <Skill
+                    Technology={Tech.technology}
+                    Percentage={Tech.mastery}
+                  />
                 </li>
               );
             })}
@@ -94,7 +104,7 @@ function Skills() {
         </div>
         <div
           className="skills__category"
-          data-aos="fade-up"
+          data-aos={isDesktop && "fade-up"}
           data-aos-anchor-placement="center-bottom"
           data-aos-duration="1000"
         >
@@ -120,10 +130,13 @@ function Skills() {
             </span>
           </div>
           <ul className="category__skill-list">
-            {BackendSkills.map((Tech) => {
+            {BackendSkills.map((Tech, index) => {
               return (
-                <li className="skill-list-item" key={useId()}>
-                  <Skill Technology={Tech[0]} Percentage={Tech[1]} />
+                <li className="skill-list-item" key={index}>
+                  <Skill
+                    Technology={Tech.technology}
+                    Percentage={Tech.mastery}
+                  />
                 </li>
               );
             })}
@@ -131,7 +144,7 @@ function Skills() {
         </div>
         <div
           className="skills__category"
-          data-aos="fade-left"
+          data-aos={isDesktop && "fade-left"}
           data-aos-anchor-placement="right-bottom"
           data-aos-duration="1200"
         >
@@ -158,10 +171,13 @@ function Skills() {
             </span>
           </div>
           <ul className="category__skill-list">
-            {RelatedSkills.map((Tech) => {
+            {RelatedSkills.map((Tech, index) => {
               return (
-                <li className="skill-list-item" key={useId()}>
-                  <Skill Technology={Tech[0]} Percentage={Tech[1]} />
+                <li className="skill-list-item" key={index}>
+                  <Skill
+                    Technology={Tech.technology}
+                    Percentage={Tech.mastery}
+                  />
                 </li>
               );
             })}
@@ -176,7 +192,7 @@ function Skill({
   Technology,
   Percentage,
 }: {
-  Technology: ({ displayCaption }: TechnologyInstance) => JSX.Element;
+  Technology: TechnologyType;
   Percentage: number;
 }) {
   const skillRef = useRef<HTMLDivElement | null>(null);
@@ -201,7 +217,7 @@ function Skill({
   }, []);
   return (
     <div className="skill" ref={skillRef}>
-      <Technology displayCaption={true} />
+      {GetTechComponent(Technology, true)}
       <div className="progress">
         <CircularProgressAnimated
           value={Percentage}

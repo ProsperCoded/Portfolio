@@ -1,15 +1,20 @@
-import { ProjectsData } from "../components/Projects/Projects";
+// import { ProjectsData } from "../components/Projects/Projects";
+import { useContext } from "react";
+import { PROJECTS_CONTEXT } from "../App";
 import Page from "./Page";
 import { useParams } from "react-router-dom";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 function ProjectProcess() {
   const id = parseInt((useParams() as { id: string }).id);
+  const [ProjectsData] = useContext(PROJECTS_CONTEXT);
   const project = ProjectsData[id];
   return (
     <Page
       icon={project.icon}
       heading={project.title}
       subHeading={
-        <h3 className="sub-heading">
+        <h3 className="short-heading">
           <a
             className="project__web-link"
             target="_blank"
@@ -23,19 +28,8 @@ function ProjectProcess() {
       }
       className={"project-page"}
     >
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius minus quae
-        a blanditiis quaerat atque quod praesentium odio! Quisquam labore ullam
-        itaque minima animi! Laborum, quaerat necessitatibus deserunt in
-        repellendus amet nisi reprehenderit! Voluptatibus similique blanditiis
-        placeat autem, aut possimus nisi molestias quia adipisci nulla
-        recusandae asperiores eius esse, suscipit ipsam magnam commodi ipsum
-        harum! Reiciendis similique praesentium officia nemo, vitae voluptatibus
-        temporibus! Quos dignissimos distinctio consequuntur natus sit, mollitia
-        quas eveniet enim beatae veritatis facilis ipsum veniam corrupti
-        dolores! Praesentium dicta sit assumenda consequuntur quam veritatis
-        soluta, itaque a. Sapiente laboriosam quidem distinctio optio at autem
-        expedita reprehenderit itaque.
+      <p style={{ width: "100%" }}>
+        <Markdown remarkPlugins={[remarkGfm]}>{project.devProcess}</Markdown>
       </p>
     </Page>
   );

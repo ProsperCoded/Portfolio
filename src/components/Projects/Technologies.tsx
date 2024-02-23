@@ -20,7 +20,7 @@ import xdLogo from "./assets/icons/xd.webp";
 import graphql from "./assets/icons/graphql.webp";
 import cssLogo from "./assets/icons/css.webp";
 
-import { TechnologyInstance } from "../../types";
+import { TechnologyInstance, TechnologyType } from "../../types";
 export function Technology({
   url,
   name,
@@ -32,7 +32,13 @@ export function Technology({
 }) {
   return (
     <div style={{ textAlign: "center" }}>
-      <img src={url} alt={name} className="technology" title={name} />
+      <img
+        src={url}
+        alt={name}
+        className="technology"
+        title={name}
+        loading="lazy"
+      />
       {displayCaption && (
         <p className="caption" style={{ padding: 0, margin: 0 }}>
           {name}
@@ -41,7 +47,31 @@ export function Technology({
     </div>
   );
 }
-
+export function GetTechComponentFromList(
+  id: String,
+  Technologies: TechnologyType[],
+  displayCaption = false
+) {
+  const tech = Technologies.find((tech) => {
+    return tech.id === id;
+  });
+  return (
+    <Technology
+      name={tech!.name}
+      url={tech!.image}
+      displayCaption={displayCaption}
+    />
+  );
+}
+export function GetTechComponent(tech: TechnologyType, displayCaption = false) {
+  return (
+    <Technology
+      name={tech!.name}
+      url={tech!.image}
+      displayCaption={displayCaption}
+    />
+  );
+}
 export function React({ displayCaption = false }: TechnologyInstance) {
   return (
     <Technology url={reactLogo} displayCaption={displayCaption} name="React" />

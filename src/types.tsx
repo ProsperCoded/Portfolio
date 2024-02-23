@@ -2,13 +2,26 @@ export type TechnologyInstance = {
   displayCaption?: boolean;
 };
 export type ProjectDataType = {
+  id: string;
   title: string;
   link: string;
   description: string;
-  githubRepo: string;
-  Technologies: (({ displayCaption }: TechnologyInstance) => JSX.Element)[];
-  imageInterface: string;
+  gitHubRepo: string;
+  technologies: TechnologyType[];
+  interface: string;
   icon: string;
-  fullProcess?: string;
-  challenges?: string;
+  devProcess: string;
+  // challenges?: string;
+};
+
+export type TechnologyType = {
+  id: string;
+  name: string;
+  image: string;
+};
+export type SkillsDataType = {
+  id: string;
+  mastery: number;
+  category: "frontend" | "backend" | "related";
+  technology: TechnologyType;
 };

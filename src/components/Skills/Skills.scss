@@ -37,10 +37,18 @@
     // border: solid 2px var(--color-dark);
     box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.7);
     border-radius: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
     & > p {
       margin-left: min(3%, 4ch);
       margin-top: 0;
       margin-bottom: 0;
+      @media screen and (min-width: $minMediumScreen) {
+        font-size: 1.1em;
+        line-height: 1.6;
+      }
     }
   }
   .tint[data-tint="primary"] {
@@ -113,17 +121,7 @@
     }
   }
 }
-.outshadow {
-  @include centerFlex();
-  box-shadow: 0 0 5px 1px black;
-  padding: 1rem;
-}
-.inshadow {
-  box-shadow: insert 0 0 5px 0px black;
-  @include centerFlex();
-  position: relative;
-  // box-sizing: inset;
-}
+
 .skills__categories {
   display: flex;
   flex-direction: column;

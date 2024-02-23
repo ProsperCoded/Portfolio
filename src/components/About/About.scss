@@ -9,8 +9,14 @@
   }
 }
 .about .about-page {
+  @media screen and (max-width: $maxSmallScreen) {
+    padding: 0;
+  }
   .content {
     display: block;
+    @media screen and (max-width: $maxSmallScreen) {
+      padding: 0;
+    }
   }
   &::before {
     content: none;

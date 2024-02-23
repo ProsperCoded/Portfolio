@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.webp";
 // import FacebookLogo from "../../assets/icons/facebook.svg";
 import { ReactSVG } from "react-svg";
@@ -59,15 +59,16 @@ function LinkCopiedReducer(
     emailCopied: false,
   };
 }
+export const whatsappNumber = "+2349155004456";
+export const emailAddress = "enweremproper@gmail.com";
 function Nav() {
   const [openLinks, setOpenLinks] = useState<Boolean>(false);
   const navLinksRef = useRef<HTMLDivElement | null>(null);
-  const whatsappNumber = "+2349155004456";
+  const navigate = useNavigate();
   const [copiedStates, copiedStatesDispatch] = useReducer(LinkCopiedReducer, {
     whatsappCopied: false,
     emailCopied: false,
   });
-  const emailAddress = "enweremproper@gmail.com";
   const navRef = useRef<HTMLElement | null>(null);
 
   const timeoutCopyMessage = (type: LinkCopiedActions) => {
@@ -96,7 +97,8 @@ function Nav() {
                 target="_blank"
                 rel="noopener"
               >
-                <ReactSVG src={GitHub} className="icon" />
+                {/* <ReactSVG src={GitHub} className="icon" /> */}
+                <i className="bi bi-github icon"></i>
               </a>
             </TooltipLinks>
             <TooltipLinks title={"Follow on facebook"}>
@@ -105,7 +107,8 @@ function Nav() {
                 target="_blank"
                 rel="noopener"
               >
-                <ReactSVG src={FacebookIcon} className="icon" />
+                {/* <ReactSVG src={FacebookIcon} className="icon" /> */}
+                <i className="bi bi-facebook icon"></i>
               </a>
             </TooltipLinks>
             <TooltipLinks
@@ -123,7 +126,8 @@ function Nav() {
                 }}
                 href="https://wa.me/2349155004456?text=Hello,%20I%20viewed%20your%20portfolio"
               >
-                <ReactSVG src={WhatsappIcon} className="icon" />
+                {/* <ReactSVG src={WhatsappIcon} className="icon" /> */}
+                <i className="bi bi-whatsapp icon"></i>
               </a>
             </TooltipLinks>
 
@@ -147,7 +151,8 @@ function Nav() {
                   timeoutCopyMessage(LinkCopiedActions.email);
                 }}
               >
-                <ReactSVG src={EmailIcon} className="icon mail" />
+                {/* <ReactSVG src={EmailIcon} className="icon mail" /> */}
+                <i className="bi bi-envelope icon"></i>
               </a>
             </Tooltip>
           </div>
@@ -164,9 +169,16 @@ function Nav() {
           </button>
         </div>
 
-        <a href="/hire-me" className="btn btn--twist cta">
-          Hire Me
-        </a>
+        <Link
+          to="/dm"
+          className="btn btn--twist cta"
+          onContextMenu={(e) => {
+            navigate("/services");
+            e.preventDefault();
+          }}
+        >
+          Direct Message
+        </Link>
       </div>
     </nav>
   );

@@ -1,9 +1,10 @@
 import { Tooltip } from "antd";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Main() {
   const downloadRef = useRef<HTMLAnchorElement | null>(null);
+  const navigate = useNavigate();
   return (
     <div className="main ">
       <div className="main__content container-curve">
@@ -44,7 +45,6 @@ function Main() {
                 View / Download CV
               </a>
 
-              <Link to="/services">Services</Link>
               <a
                 href="./static/resume.pdf"
                 className="d-none"
@@ -53,9 +53,16 @@ function Main() {
               ></a>
             </Tooltip>
 
-            <a href="hire-me" className="btn btn--twist main__cta">
-              Hire Me
-            </a>
+            <Link
+              to="/dm"
+              className="btn btn--twist main__cta"
+              onContextMenu={(e) => {
+                navigate("/services");
+                e.preventDefault();
+              }}
+            >
+              Direct Message
+            </Link>
           </div>
         </div>
       </div>

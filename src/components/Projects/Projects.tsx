@@ -1,68 +1,38 @@
 import { Tooltip } from "antd";
-import { useEffect, useId, useRef } from "react";
-import { Javascript, React, Sass, TypeScript, Vite, Vue } from "./Technologies";
+import { useContext, useEffect, useId, useRef } from "react";
+import {
+  GetTechComponent,
+  Javascript,
+  React,
+  Sass,
+  TypeScript,
+  Vite,
+  Vue,
+} from "./Technologies";
 // General Imports
 import gitHubIcon from "./assets/icons/github.webp";
 // weatherlyX
-import WeatherlyX_InterfaceImage from "./assets/weatherlyx/interface.webp";
-import WeatherlyX_Logo from "./assets/weatherlyx/logo.webp";
-
-import PlayerCoded_Interface from "./assets/playercoded/interface.webp";
-import PlayerCoded_Logo from "./assets/playercoded/logo.webp";
-
-import CalcCoded_Interface from "./assets/calccoded/interface.webp";
-import CalcCoded_Logo from "./assets/calccoded/logo.webp";
 import { Link } from "react-router-dom";
-import { ProjectDataType } from "../../types";
+import { ProjectDataType, TechnologyType } from "../../types";
 import AOS from "aos";
-
-export const ProjectsData: ProjectDataType[] = [
-  {
-    title: "Weatherlyx",
-    link: "https://weatherlyx.netlify.app",
-    description:
-      "A reliable weather app that uses the OpenWeather API to display the current weather in your browser",
-    imageInterface: WeatherlyX_InterfaceImage,
-    icon: WeatherlyX_Logo,
-    githubRepo: "https://github.com/prospercoded/weatherlyx",
-    Technologies: [React, TypeScript, Sass],
-  },
-  {
-    title: "Player Coded",
-    link: "https://playercoded.netlify.app",
-    description:
-      "A Versatile music player and explorer, You can search for any track & album and Listen to a 30min Preview",
-    imageInterface: PlayerCoded_Interface,
-    icon: PlayerCoded_Logo,
-    githubRepo: "https://github.com/prospercoded/playercoded",
-    Technologies: [Sass, Javascript],
-  },
-  {
-    title: "Calc Coded",
-    link: "https://calccoded.netlify.app",
-    description: "A simple calculator With elegant design For ease of use",
-    imageInterface: CalcCoded_Interface,
-    icon: CalcCoded_Logo,
-    githubRepo: "https://github.com/prospercoded/calccoded",
-    Technologies: [Vite, Javascript, Vue],
-  },
-];
+import { PROJECTS_CONTEXT, isDesktop } from "../../App";
 
 function Projects() {
+  const [projectsData] = useContext(PROJECTS_CONTEXT);
   return (
     <div className="projects" id="projects">
       <h1 className="projects__heading">Projects</h1>
       <div className="projects__items">
-        {ProjectsData.map((data, index) => (
+        {projectsData.map((data, index) => (
           <Project
             id={index}
             key={index}
             title={data.title}
             link={data.link}
             description={data.description}
-            githubRepo={data.githubRepo}
-            Technologies={data.Technologies}
-            imageInterface={data.imageInterface}
+            githubRepo={data.gitHubRepo}
+            technologies={data.technologies}
+            interface={data.interface}
             icon={data.icon}
           />
         ))}
@@ -73,21 +43,21 @@ function Projects() {
 type ProjectProps = {
   title: string;
   description: string;
-  imageInterface: string;
+  interface: string;
   icon: string;
   link: string;
   githubRepo: string;
-  Technologies: React.ElementType[];
+  technologies: TechnologyType[];
   id: number;
 };
 function Project(props: ProjectProps) {
   const url = useRef(new URL(props.link));
   // const location = useLocation();
   useEffect(() => {
-    AOS.init();
+    isDesktop && AOS.init();
   }, []);
   return (
-    <div className="project" data-aos="flip-left">
+    <div className="project" data-aos={isDesktop && "flip-left"}>
       <a href={props.link} target="_blank" rel="noopener noreferrer">
         <Tooltip
           title={`Visit ${props.title}`}
@@ -110,7 +80,7 @@ function Project(props: ProjectProps) {
       >
         <Link to={`/project/${props.id}`} style={{ textDecoration: "none" }}>
           <div className="project__image">
-            <img alt="project__image" src={props.imageInterface} />
+            <img alt="project__image" src={props.interface} />
           </div>
           <h1 className="project__title">{props.title}</h1>
         </Link>
@@ -134,10 +104,10 @@ function Project(props: ProjectProps) {
       </a>
       <h2 className="project__technologies">Technologies</h2>
       <ul className="project__technologies-list">
-        {props.Technologies.map((Tech) => {
+        {props.technologies.map((tech) => {
           return (
             <li className="project_technologies_list-item" key={useId()}>
-              <Tech />
+              {GetTechComponent(tech)}
             </li>
           );
         })}

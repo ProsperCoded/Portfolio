@@ -114,11 +114,14 @@ nav {
   }
 
   .icon {
+    color: var(--color-primary);
+    display: block;
+    transform: scale(1.3);
     svg {
       fill: var(--color-primary);
       width: 1.7em;
     }
-    margin: auto 5px;
+    margin: auto 8px;
   }
   .cta {
     display: none;
@@ -172,12 +175,6 @@ nav {
   }
   width: 7em;
   @include centerFlex();
-}
-.icon {
-  svg {
-    width: 1.5em;
-    fill: rgb(var(--code-secondary));
-  }
 }
 .tooltip-links {
   text-align: center;
