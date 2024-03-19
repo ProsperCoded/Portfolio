@@ -7,7 +7,7 @@ import { useCountUp } from "use-count-up";
 import { TechnologyInstance, TechnologyType } from "../../types";
 import * as Technologies from "../Projects/Technologies";
 import { SKILLS_CONTEXT, isDesktop } from "../../App";
-import * as _ from "lodash";
+import _ from "lodash";
 import { GetTechComponent } from "../Projects/Technologies";
 
 function Skills() {

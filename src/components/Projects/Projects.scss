@@ -101,10 +101,8 @@
       text-decoration-color: rgba(var(--code-dark), 0.6);
       text-decoration-thickness: 1.5px;
     }
-    img {
-      // width: 100%;
-      width: 30px;
-      margin-right: 0.5em;
+    i {
+      color: rgba(49, 49, 49, 0.856);
     }
   }
   &__description {

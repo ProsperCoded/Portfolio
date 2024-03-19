@@ -1,4 +1,4 @@
-import { URL_BASE } from "./pages/Services";
+import { URL_BASE } from "./main";
 import { TechnologyType, SkillsDataType, ProjectDataType } from "./types";
 
 async function get(url: URL) {

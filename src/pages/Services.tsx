@@ -30,7 +30,7 @@ import { GetTechComponent } from "../components/Projects/Technologies";
 import { deleteProject, deleteSkill, deleteTechnology } from "../apis";
 import TextArea from "antd/es/input/TextArea";
 import * as _ from "lodash";
-export const URL_BASE = "http://localhost:3000/";
+import { URL_BASE } from "../main";
 
 enum ServiceOperations {
   UPLOAD_SKILLS = "upload skills",
@@ -587,11 +587,26 @@ function ProjectField({
           size="large"
           placeholder="Please Select Technology Used"
           // defaultValue={"html"}
-          onChange={(value, options: { id: string }[]) => {
-            console.log(options);
-            setProject((prev: any) => {
-              return { ...prev, technologiesId: options.map((e) => e.id) };
-            });
+          onChange={(value, option: { id: string }[] | { id: string }) => {
+            console.log(option);
+
+            if (_.isArray(option)) {
+              setProject((prev: any) => {
+                return {
+                  ...prev,
+                  technologiesId: (option as Array<{ id: string }>).map(
+                    (e) => e.id
+                  ),
+                };
+              });
+            } else {
+              setProject((prev: any) => {
+                return {
+                  ...prev,
+                  technologiesId: [option],
+                };
+              });
+            }
           }}
           value={project.technologiesId.map(
             (techId) => TechnologiesData.find((d) => d.id === techId)!.name

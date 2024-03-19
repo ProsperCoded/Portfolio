@@ -1,10 +1,9 @@
 import { Button, Checkbox, Flex, Input } from "antd";
 import { Form, redirect, useActionData, useNavigate } from "react-router-dom";
 import Page from "./Page";
-import { URL_BASE } from "./Services";
 import { useContext, useEffect, useState } from "react";
-// const { URL_BASE } = import("./Services");
 import { IS_ADMIN } from "../App";
+import { URL_BASE } from "../main";
 export async function authAction({ request }: { request: any }) {
   const data = await request.formData();
   // const in
@@ -82,8 +81,8 @@ export function AuthAdmin() {
         </Button> */}
         <div>
           <Checkbox
-            onClick={(e) => {
-              setIntent(e.target.checked ? "login" : "register");
+            onClick={(e: any) => {
+              setIntent((e.target.checked as boolean) ? "login" : "register");
             }}
           >
             Register as admin

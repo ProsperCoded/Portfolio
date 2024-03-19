@@ -85,13 +85,11 @@ function App() {
             itemColor: "rgba(255, 255, 255, 0.82)",
           },
           Select: {
-            optionActiveBg: "rgba(0, 51, 123, 0.521)",
-            colorBgContainer: "rgba(0, 51, 123, 0.521)",
-            // selectorBg: "rgba(0, 51, 123, 0.521)",
-            // clearBg: "rgba(0, 51, 123, 0.521)",
-            // multipleItemBg: "rgba(0, 51, 123, 0.521)",
+            optionActiveBg: "var(--color-blue-light-transparent)",
+            colorBgContainer: "var(--color-blue-light-transparent)",
             optionSelectedBg: "#080030",
             colorBgElevated: "rgb(0, 51, 123)",
+            optionSelectedColor: "var(--color-light)",
           },
           Input: {
             // activeBg: "transparent",
@@ -100,20 +98,27 @@ function App() {
             // colorFillContent: "transparent",
           },
           Button: {
-            colorBgContainer: "#9edbeb",
+            colorBgContainer: "var(--color-primary)",
+            colorFill: "var(--color-secondary)",
+            // colorBgElevated: "var(--color-secondary)",
+          },
+          Notification: {
+            colorText: "var(--color-dark)",
+            colorTextHeading: "var(--color-dark)",
+            colorBgContainer: "var(--color-blue-light)",
           },
         },
         token: {
           // Seed Token
-          colorPrimary: "#bb2284",
-          colorFillSecondary: "#00337b",
-          colorFillTertiary: "#00337b",
+          colorPrimary: "var(--color-secondary)",
+          colorFillSecondary: "var(--color-blue-light)",
+          colorFillTertiary: "var(--color-secondary)",
           borderRadius: 6,
+          colorText: "var(--color-light)",
+          colorBgContainer: "var(--color-blue-light-transparent)",
+          colorFill: "var(--color-secondary)",
 
           // Alias Token
-          colorBgContainer: "rgba(0, 51, 123, 0.521)",
-          colorText: "rgba(255, 255, 255, 0.82)",
-          colorFill: "#00337b",
         },
       }}
     >

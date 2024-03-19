@@ -1,16 +1,7 @@
 import { Tooltip } from "antd";
 import { useContext, useEffect, useId, useRef } from "react";
-import {
-  GetTechComponent,
-  Javascript,
-  React,
-  Sass,
-  TypeScript,
-  Vite,
-  Vue,
-} from "./Technologies";
+import { GetTechComponent } from "./Technologies";
 // General Imports
-import gitHubIcon from "./assets/icons/github.webp";
 // weatherlyX
 import { Link } from "react-router-dom";
 import { ProjectDataType, TechnologyType } from "../../types";
@@ -100,7 +91,7 @@ function Project(props: ProjectProps) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src={gitHubIcon} alt="github" />
+        <i className="bi bi-github icon"></i>
       </a>
       <h2 className="project__technologies">Technologies</h2>
       <ul className="project__technologies-list">

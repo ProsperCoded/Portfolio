@@ -3,11 +3,7 @@ import logo from "../../assets/logo.webp";
 // import FacebookLogo from "../../assets/icons/facebook.svg";
 import { ReactSVG } from "react-svg";
 // Icons
-import FacebookIcon from "../../assets/icons/facebook.svg";
-import WhatsappIcon from "../../assets/icons/whatsapp.svg";
-import EmailIcon from "../../assets/icons/mail.svg";
 import NavTogglerIcon from "../../assets/icons/navtoggler.svg";
-import GitHub from "../../assets/icons/github.svg";
 import { Tooltip } from "antd";
 import { useReducer, useRef, useState } from "react";
 
