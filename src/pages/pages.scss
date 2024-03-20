@@ -36,30 +36,6 @@
     flex-direction: column;
     align-items: center;
   }
-  .heading {
-    color: var(--color-secondary);
-    @include Neon(--color-secondary);
-    text-align: center;
-    // font-size: calc(var(--heading) * 1.5);
-    @include clearSpace();
-  }
-  .sub-heading {
-    color: var(--color-primary);
-    font-size: 1.2em;
-    @media screen and (min-width: $minMediumScreen) {
-      font-size: 1.6em;
-    }
-    // margin-top: 1em !important;
-
-    @include clearSpace();
-  }
-  .short-heading {
-    @extend .sub-heading;
-    font-size: 1.1em;
-    @media screen and (min-width: $minMediumScreen) {
-      font-size: 1.25em;
-    }
-  }
   &::before {
     z-index: 1;
     top: 0;
@@ -88,24 +64,6 @@
   }
 }
 
-// ProjectProcess
-.project-page {
-  .project__web-link {
-    position: relative;
-    &::after {
-      content: "→";
-      position: absolute;
-      top: 0;
-      left: 101%;
-      transition: left 100ms ease-in;
-    }
-    &:hover {
-      &::after {
-        left: calc(101% + 10px);
-      }
-    }
-  }
-}
 // Direct Message
 .page .dm {
   border: solid 2px rgba(var(--code-light), 0.6);

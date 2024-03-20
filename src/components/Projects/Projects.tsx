@@ -12,7 +12,7 @@ function Projects() {
   const [projectsData] = useContext(PROJECTS_CONTEXT);
   return (
     <div className="projects" id="projects">
-      <h1 className="projects__heading">Projects</h1>
+      <h1 className="heading">Projects</h1>
       <div className="projects__items">
         {projectsData.map((data, index) => (
           <Project
@@ -43,7 +43,6 @@ type ProjectProps = {
 };
 function Project(props: ProjectProps) {
   const url = useRef(new URL(props.link));
-  // const location = useLocation();
   useEffect(() => {
     isDesktop && AOS.init();
   }, []);
@@ -73,7 +72,7 @@ function Project(props: ProjectProps) {
           <div className="project__image">
             <img alt="project__image" src={props.interface} />
           </div>
-          <h1 className="project__title">{props.title}</h1>
+          <h1 className="project__title ">{props.title}</h1>
         </Link>
       </Tooltip>
       <a

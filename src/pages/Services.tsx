@@ -186,7 +186,7 @@ function Services() {
     const authorize = async () => {
       const url = new URL("/admin/auto-login", URL_BASE);
       const token = localStorage.getItem("jwt-token");
-      console.log("token is :", token);
+      // console.log("token is :", token);
       if (token && token !== "null") {
         const res = await fetch(url, {
           headers: {

@@ -1,7 +1,7 @@
 // import { ProjectsData } from "../components/Projects/Projects";
 import { useContext } from "react";
-import { PROJECTS_CONTEXT } from "../App";
-import Page from "./Page";
+import { PROJECTS_CONTEXT } from "../../App";
+import Page from "../Page";
 import { useParams } from "react-router-dom";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -21,16 +21,16 @@ function ProjectProcess() {
             rel="noopener noreferrer"
             href={project.link}
           >
-            {project.link}
+            Visit Website
           </a>
           <p> {project.description}</p>
         </h3>
       }
-      className={"project-page"}
+      className={"project-process-page"}
     >
-      <p style={{ width: "100%" }}>
+      <div style={{ width: "100%" }}>
         <Markdown remarkPlugins={[remarkGfm]}>{project.devProcess}</Markdown>
-      </p>
+      </div>
     </Page>
   );
 }

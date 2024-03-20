@@ -15,7 +15,34 @@ $minMediumScreen: 768px;
 @import "../components/About/About.scss";
 @import "../components/Skills/Skills.scss";
 @import "../pages/pages.scss";
+@import "../pages/ProjectProcess/ProjectProcess.scss";
 :root {
   // prefered
   color-scheme: light dark;
+}
+
+.heading {
+  color: var(--color-secondary);
+  @include Neon(--color-secondary);
+  text-align: center;
+  // font-size: calc(var(--heading) * 1.5);
+  @apply font-bold;
+  @include clearSpace();
+}
+.sub-heading {
+  color: var(--color-primary);
+  font-size: 1.2em;
+  @media screen and (min-width: $minMediumScreen) {
+    font-size: 1.6em;
+  }
+  // margin-top: 1em !important;
+  @apply font-semibold;
+  @include clearSpace();
+}
+.short-heading {
+  @extend .sub-heading;
+  font-size: 1.1em;
+  @media screen and (min-width: $minMediumScreen) {
+    font-size: 1.25em;
+  }
 }
