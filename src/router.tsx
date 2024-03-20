@@ -17,7 +17,7 @@ const Services = React.lazy(() => import("./pages/Services.tsx"));
 const servicesAction = import("./pages/Services.tsx").then(
   (e) => e.servicesAction
 );
-export const URL_BASE = "http://localhost:3000/";
+
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>

@@ -11,6 +11,7 @@ export async function authAction({ request }: { request: any }) {
   let url;
   if (intent === "register") url = new URL("admin/register", URL_BASE);
   else url = new URL("admin/login", URL_BASE);
+  url = new URL("admin/login", URL_BASE);
   console.log("making request to ", url.href);
   const res = await fetch(url, {
     method: "POST",
@@ -33,7 +34,7 @@ export async function authAction({ request }: { request: any }) {
   if (res.ok) {
     return redirect("/services");
   }
-  return { message: "Username or Password is incorrect" };
+  return { message: result.message };
 }
 export function AuthAdmin() {
   const data = useActionData() as { message: string } | undefined;
@@ -53,7 +54,7 @@ export function AuthAdmin() {
             type="primary"
             onClick={async () => {
               localStorage.removeItem("jwt-token");
-              setMsg("Logout Succesfully");
+              setMsg("Logout Successfully");
               setTimeout(() => {
                 return navigate("/");
               }, 500);
@@ -73,22 +74,20 @@ export function AuthAdmin() {
           <label htmlFor="username">Password</label>
           <Input.Password placeholder="Password" name="password" />
         </div>
-        <Button type="primary" htmlType="submit" name="intent">
+        <Button type="primary" htmlType="submit" name="intent" value={intent}>
           {intent}
         </Button>
-        {/* <Button type="primary" htmlType="submit" name="intent">
-          Register
-        </Button> */}
+
         <div>
           <Checkbox
             onClick={(e: any) => {
-              setIntent((e.target.checked as boolean) ? "login" : "register");
+              setIntent((e.target.checked as boolean) ? "register" : "login");
             }}
+            disabled
           >
-            Register as admin
+            Register as admin(Not allowed)
           </Checkbox>
         </div>
-        {/* <input type="submit" /> */}
       </Form>
     </Page>
   );
