@@ -207,15 +207,15 @@ function NavLinks({
           <a href={`${currentOrigin}#skills`}>Skills</a>
         </li>
         <li>
-          {/* <Link to={`${currentOrigin}#projects`}>Projects</Link> */}
           <a href={`${currentOrigin}#projects`}>Projects</a>
-          {/* <NavLink to="#projects">About</NavLink> */}
         </li>
         <li>
-          {/* <NavLink to="/resume">Resume</NavLink> */}
           <a href="./static/resume.pdf" target="_blank">
             Resume
           </a>
+        </li>
+        <li className="md:hidden  line-clamp-1 leading-none text-center">
+          <Link to="/dm">DM</Link>
         </li>
       </ul>
     </div>

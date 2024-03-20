@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import Home from "./pages/Home.tsx";
 import AboutPage from "./pages/About.tsx";
 import Nav from "./components/Nav/Nav.tsx";
-import ProjectProcess from "./pages/ProjectProcess.tsx";
+import ProjectProcess from "./pages/ProjectProcess/ProjectProcess.tsx";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 // import Services, { servicesAction } from "./pages/Services.tsx";
 import { ProjectDataType, SkillsDataType, TechnologyType } from "./types.tsx";

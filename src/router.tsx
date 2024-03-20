@@ -4,7 +4,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import AboutPage from "./pages/About.tsx";
-import ProjectProcess from "./pages/ProjectProcess.tsx";
+import ProjectProcess from "./pages/ProjectProcess/ProjectProcess.tsx";
 import DirectMessage from "./pages/DirectMessage.tsx";
 import { AuthAdmin, authAction } from "./pages/AuthAdmin.tsx";
 import { Suspense, useContext } from "react";
@@ -13,10 +13,11 @@ import Home from "./pages/Home.tsx";
 import React from "react";
 
 // import Services from "./pages/Services.tsx";
+import { servicesAction } from "./pages/Services.tsx";
 const Services = React.lazy(() => import("./pages/Services.tsx"));
-const servicesAction = import("./pages/Services.tsx").then(
-  (e) => e.servicesAction
-);
+// const servicesAction = import("./pages/Services.tsx").then(
+//   (e) => e.servicesAction
+// );
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
