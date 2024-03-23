@@ -6,8 +6,8 @@
 @import "utils";
 
 // Sass Variables
-$maxSmallScreen: 600px;
-$minMediumScreen: 768px;
+$minMediumScreen: 600px;
+$minLargeScreen: 768px;
 
 @import "../components/Nav/Nav";
 @import "../components/Main/Main.scss";
@@ -16,6 +16,9 @@ $minMediumScreen: 768px;
 @import "../components/Skills/Skills.scss";
 @import "../pages/pages.scss";
 @import "../pages/ProjectProcess/ProjectProcess.scss";
+.app {
+  overflow-x: clip;
+}
 :root {
   // prefered
   color-scheme: light dark;
@@ -32,7 +35,7 @@ $minMediumScreen: 768px;
 .sub-heading {
   color: var(--color-primary);
   font-size: 1.2em;
-  @media screen and (min-width: $minMediumScreen) {
+  @media screen and (min-width: $minLargeScreen) {
     font-size: 1.6em;
   }
   // margin-top: 1em !important;
@@ -42,7 +45,7 @@ $minMediumScreen: 768px;
 .short-heading {
   @extend .sub-heading;
   font-size: 1.1em;
-  @media screen and (min-width: $minMediumScreen) {
+  @media screen and (min-width: $minLargeScreen) {
     font-size: 1.25em;
   }
 }

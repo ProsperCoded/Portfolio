@@ -3,7 +3,8 @@ import logo from "../../assets/logo.webp";
 // import FacebookLogo from "../../assets/icons/facebook.svg";
 import { ReactSVG } from "react-svg";
 // Icons
-import NavTogglerIcon from "../../assets/icons/navtoggler.svg";
+import NavTogglerIconOpen from "../../assets/icons/navtoggler-open.svg";
+import NavTogglerIconClose from "../../assets/icons/navtoggler-close.svg";
 import { Tooltip } from "antd";
 import { useReducer, useRef, useState } from "react";
 
@@ -81,7 +82,7 @@ function Nav() {
       <div className="nav__content">
         <Link to="/">
           <span className="nav__logo">
-            <img src={logo} alt="PROSPER CODED LOGO" />
+            <img src={logo} alt="PROSPER CODED LOGO" className="w-full" />
           </span>
         </Link>
         <NavLinks {...{ setOpenLinks, openLinks, navLinksRef }} />
@@ -161,7 +162,11 @@ function Nav() {
               navLinksRef.current?.focus();
             }}
           >
-            <ReactSVG src={NavTogglerIcon} className="icon " />
+            {openLinks ? (
+              <ReactSVG src={NavTogglerIconClose} className="icon " />
+            ) : (
+              <ReactSVG src={NavTogglerIconOpen} className="icon " />
+            )}
           </button>
         </div>
 
@@ -174,6 +179,16 @@ function Nav() {
           }}
         >
           Direct Message
+        </Link>
+        <Link
+          to="/dm"
+          className="btn btn--twist cta-short"
+          onContextMenu={(e) => {
+            navigate("/services");
+            e.preventDefault();
+          }}
+        >
+          DM
         </Link>
       </div>
     </nav>
@@ -193,7 +208,6 @@ function NavLinks({
     <div
       className={"nav__links-container " + (openLinks && " open")}
       onBlur={() => {
-        console.log("blur  work");
         setOpenLinks(false);
       }}
       tabIndex={1}

@@ -9,12 +9,12 @@
   //   // font-size: var(--heading);
   //   margin: 0.5rem auto;
   //   @include Neon(--color-light);
-  //   @media screen and (min-width: $maxSmallScreen) {
+  //   @media screen and (min-width: $minMediumScreen) {
   //     // font-size: calc(var(--heading) * 1.2);
   //     margin: 0 auto;
   //   }
   // }
-  @media screen and (min-width: $maxSmallScreen) {
+  @media screen and (min-width: $minMediumScreen) {
     width: min-content;
     margin: 0 auto;
   }
@@ -30,12 +30,12 @@
   justify-items: center;
   margin: 2rem;
 
-  @media screen and (min-width: $minMediumScreen) {
+  @media screen and (min-width: $minLargeScreen) {
     font-size: 1.1em;
     display: grid;
     margin: 0.5em;
     justify-content: center;
-    @media screen and (min-width: ($minMediumScreen+200)) {
+    @media screen and (min-width: ($minLargeScreen+200)) {
       justify-content: end;
     }
     & > * {

@@ -1,6 +1,7 @@
 import { Tooltip } from "antd";
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ProfileImage from "./../../assets/profile.png";
 
 function Main() {
   const downloadRef = useRef<HTMLAnchorElement | null>(null);
@@ -8,11 +9,17 @@ function Main() {
   return (
     <div className="main ">
       <div className="main__content container-curve">
-        <header className="main__heading">
+        <header className="main__heading ">
           <h1 className="main__title">Hello, My name is</h1>
           <span className="main__name highlight">Prosper Enwerem</span>
         </header>
-        <BlobAnimation />
+        <div className="main__profile-image">
+          <img
+            src={ProfileImage}
+            alt="profile image"
+            className="drop-shadow-xl"
+          />
+        </div>
         <div className="main__info">
           <h2 className="main__profession">I am a Developer</h2>
           <p className="main__description">
@@ -26,7 +33,7 @@ function Main() {
             scalable agency websites, I am committed to delivering digital
             solutions that leave a lasting impact.
           </p>
-          <div className="main__actions">
+          <div className="main__actions flex flex-wrap">
             <Tooltip
               title="Right CLick to download CV"
               arrow
@@ -47,7 +54,7 @@ function Main() {
 
               <a
                 href="./static/resume.pdf"
-                className="d-none"
+                className="hidden"
                 ref={downloadRef}
                 download
               ></a>

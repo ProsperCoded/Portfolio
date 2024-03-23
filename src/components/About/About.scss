@@ -9,12 +9,12 @@
   }
 }
 .about .about-page {
-  @media screen and (max-width: $maxSmallScreen) {
+  @media screen and (max-width: $minMediumScreen) {
     padding: 0;
   }
   .content {
     display: block;
-    @media screen and (max-width: $maxSmallScreen) {
+    @media screen and (max-width: $minMediumScreen) {
       padding: 0;
     }
   }

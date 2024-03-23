@@ -45,7 +45,7 @@
       margin-left: min(3%, 4ch);
       margin-top: 0;
       margin-bottom: 0;
-      @media screen and (min-width: $minMediumScreen) {
+      @media screen and (min-width: $minLargeScreen) {
         font-size: 1.1em;
       }
     }
@@ -83,7 +83,7 @@
   margin: 0.5em;
   border-radius: 0.5em;
 
-  @media screen and (min-width: ($minMediumScreen + 400)) {
+  @media screen and (min-width: ($minLargeScreen + 400)) {
     grid-template-columns: 1fr 1fr 1fr;
   }
   li {
@@ -127,7 +127,7 @@
 
   grid-template-columns: 1fr 1fr 1fr;
 
-  @media screen and (min-width: ($minMediumScreen + 200)) {
+  @media screen and (min-width: ($minLargeScreen + 200)) {
     display: grid;
   }
 }
